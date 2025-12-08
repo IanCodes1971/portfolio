@@ -1,60 +1,240 @@
-<!-- ABOUT ME SECTION -->
-<div class="container fade-in">
-    <h2 class="section-title">About Me</h2>
-    <div class="about-section">
-        <div class="about-info">
-            <h2>Hello!</h2>
-            <p>
-                I am Ian Casini, a software developer and data analyst passionate about solving complex problems
-                and building meaningful projects. My experience spans game development, automation scripts, AI chatbots,
-                ray tracing, and data analysis. I enjoy turning data into insights, creating interactive applications,
-                and learning new technologies to stay at the forefront of innovation.
-            </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ian Casini Portfolio</title>
+
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            animation: fadeUp 1.2s ease-out;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .hero img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffb400;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            padding: 12px 26px;
+            background: #ffb400;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+
+        .hero .btn:hover {
+            background: #ffcf4d;
+        }
+
+        /* CONTAINERS */
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .project, .resume-section, .about-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .project img, .resume-section img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #ddd;
+        }
+
+        .project-info, .resume-info, .about-info {
+            flex-grow: 1;
+        }
+
+        .project-info h2, .resume-info h2, .about-info h2 {
+            margin-top: 0;
+        }
+
+        .resume-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #1f1f1f;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        .resume-btn:hover {
+            background: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="hero-content">
+            <img src="myphoto.png" alt="Ian Casini Photo" />
+            <h1>Ian Casini</h1>
+            <p>Software Developer • Data Analyst • Problem Solver</p>
+            <a href="#about" class="btn">Learn More</a>
         </div>
     </div>
-</div>
 
-<!-- PROJECTS SECTION -->
-<div id="projects" class="container">
-    <h2 class="section-title">Featured Projects</h2>
-
-    <div class="project fade-in">
-        <img src="Frogger.png" alt="Project image" />            
-        <div class="project-info">
-            <h2>Frogger</h2>
-            <p>A lightweight arcade game where you dodge cars, ride moving logs, and land safely on lily pads.</p>
+    <!-- ABOUT ME SECTION -->
+    <div id="about" class="container fade-in">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-section">
+            <div class="about-info">
+                <h2>Hello!</h2>
+                <p>
+                    I am Ian Casini, a software developer and data analyst passionate about solving complex problems
+                    and building meaningful projects. My experience spans game development, automation scripts, AI chatbots,
+                    ray tracing, and data analysis. I enjoy turning data into insights, creating interactive applications,
+                    and learning new technologies to stay at the forefront of innovation.
+                </p>
+            </div>
         </div>
     </div>
 
-    <div class="project fade-in">
-        <img src="RegistrationAutomation.png" alt="Project image" />
-        <div class="project-info">
-            <h2>Keystone Registration</h2>
-            <p>Automated Google Form responses with email notifications using Google Apps Script.</p>
+    <!-- RESUME SECTION -->
+    <div class="container fade-in">
+        <h2 class="section-title">Resume</h2>
+        <div class="resume-section">
+            <img src="resume-screenshot.png" alt="Resume Screenshot" />
+            <div class="resume-info">
+                <h2>My Resume</h2>
+                <p>Click below to download a PDF version of my full resume, showcasing my skills, projects, and experience.</p>
+                <a href="IanCasini_Resume.pdf" class="resume-btn" target="_blank">Download Resume</a>
+            </div>
         </div>
     </div>
 
-    <div class="project fade-in">
-        <img src="chat.png" alt="Project image" />
-        <div class="project-info">
-            <h2>ELIZA Chatbot</h2>
-            <p>A recreation of the classic ELIZA psychotherapy chatbot using keyword matching and pattern rules.</p>
+    <!-- PROJECTS SECTION -->
+    <div id="projects" class="container">
+        <h2 class="section-title">Featured Projects</h2>
+
+        <div class="project fade-in">
+            <img src="Frogger.png" alt="Project image" />            
+            <div class="project-info">
+                <h2>Frogger</h2>
+                <p>A lightweight arcade game where you dodge cars, ride moving logs, and land safely on lily pads.</p>
+            </div>
+        </div>
+
+        <div class="project fade-in">
+            <img src="RegistrationAutomation.png" alt="Project image" />
+            <div class="project-info">
+                <h2>Keystone Registration</h2>
+                <p>Automated Google Form responses with email notifications using Google Apps Script.</p>
+            </div>
+        </div>
+
+        <div class="project fade-in">
+            <img src="chat.png" alt="Project image" />
+            <div class="project-info">
+                <h2>ELIZA Chatbot</h2>
+                <p>A recreation of the classic ELIZA psychotherapy chatbot using keyword matching and pattern rules.</p>
+            </div>
+        </div>
+
+        <div class="project fade-in">
+            <img src="Ray Tracer.png" alt="Project image" />
+            <div class="project-info">
+                <h2>Ray Tracer</h2>
+                <p>A custom ray tracer that simulates realistic lighting, shadows, and reflections.</p>
+            </div>
+        </div>
+
+        <div class="project fade-in">
+            <img src="Reviews ML Picture.png" alt="Project image" />
+            <div class="project-info">
+                <h2>NLP Review Analysis</h2>
+                <p>Extracts insights from user reviews using text preprocessing, sentiment analysis, and NLP modeling.</p>
+            </div>
         </div>
     </div>
 
-    <div class="project fade-in">
-        <img src="Ray Tracer.png" alt="Project image" />
-        <div class="project-info">
-            <h2>Ray Tracer</h2>
-            <p>A custom ray tracer that simulates realistic lighting, shadows, and reflections.</p>
-        </div>
-    </div>
+    <script>
+        // Scroll-triggered animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.2 });
 
-    <div class="project fade-in">
-        <img src="Reviews ML Picture.png" alt="Project image" />
-        <div class="project-info">
-            <h2>NLP Review Analysis</h2>
-            <p>Extracts insights from user reviews using text preprocessing, sentiment analysis, and NLP modeling.</p>
-        </div>
-    </div>
-</div>
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
