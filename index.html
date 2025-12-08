@@ -13,20 +13,15 @@
             padding: 0;
         }
 
-        @keyframes fadeUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
+        /* SIMPLE ZOOM HOVER EFFECTS */
+        .hero img,
+        .resume-section img {
+            transition: transform 0.3s ease;
         }
 
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        .fade-in.active {
-            opacity: 1;
-            transform: translateY(0);
+        .hero img:hover,
+        .resume-section img:hover {
+            transform: scale(1.1);
         }
 
         /* HERO SECTION */
@@ -35,7 +30,6 @@
             color: white;
             padding: 120px 20px;
             text-align: center;
-            animation: fadeUp 1.2s ease-out;
         }
 
         .hero-content {
@@ -51,12 +45,6 @@
             border: 4px solid #ffb400;
             margin-bottom: 25px;
             box-shadow: 0 0 15px rgba(0,0,0,0.4);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        .hero img:hover {
-            transform: scale(1.1) rotate(-2deg); /* Zoom + tilt */
-            box-shadow: 0 12px 25px rgba(0,0,0,0.5);
         }
 
         .hero h1 {
@@ -99,7 +87,9 @@
             color: #333;
         }
 
-        .project, .resume-section, .about-section {
+        .project,
+        .resume-section,
+        .about-section {
             background: white;
             padding: 20px;
             border-radius: 10px;
@@ -110,26 +100,24 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
-        .project img, .resume-section img {
+        .project img,
+        .resume-section img {
             width: 150px;
             height: 150px;
             object-fit: cover;
             border-radius: 8px;
             background: #ddd;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Resume hover effect */
-        .resume-section img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        .project-info, .resume-info, .about-info {
+        .project-info,
+        .resume-info,
+        .about-info {
             flex-grow: 1;
         }
 
-        .project-info h2, .resume-info h2, .about-info h2 {
+        .project-info h2,
+        .resume-info h2,
+        .about-info h2 {
             margin-top: 0;
         }
 
@@ -162,29 +150,29 @@
     </div>
 
     <!-- ABOUT ME SECTION -->
-    <div id="about" class="container fade-in">
+    <div id="about" class="container">
         <h2 class="section-title">About Me</h2>
         <div class="about-section">
             <div class="about-info">
                 <h2>Hello!</h2>
                 <p>
                     I am Ian Casini, a software developer and data analyst passionate about solving complex problems
-                    and building meaningful projects. My experience spans game development, automation scripts, AI chatbots,
-                    ray tracing, and data analysis. I enjoy turning data into insights, creating interactive applications,
-                    and learning new technologies to stay at the forefront of innovation.
+                    and building meaningful projects. My experience spans game development, automation scripts,
+                    AI chatbots, ray tracing, and data analysis. I enjoy turning data into insights, creating 
+                    interactive applications, and learning new technologies to stay at the forefront of innovation.
                 </p>
             </div>
         </div>
     </div>
 
     <!-- RESUME SECTION -->
-    <div class="container fade-in">
+    <div class="container">
         <h2 class="section-title">Resume</h2>
         <div class="resume-section">
             <img src="resume-screenshot.png" alt="Resume Screenshot" />
             <div class="resume-info">
                 <h2>My Resume</h2>
-                <p>Click below to download a PDF version of my full resume, showcasing my skills, projects, and experience.</p>
+                <p>Click below to download a PDF version of my full resume.</p>
                 <a href="IanCasini_Resume.pdf" class="resume-btn" target="_blank">Download Resume</a>
             </div>
         </div>
@@ -194,15 +182,15 @@
     <div id="projects" class="container">
         <h2 class="section-title">Featured Projects</h2>
 
-        <div class="project fade-in">
-            <img src="Frogger.png" alt="Project image" />            
+        <div class="project">
+            <img src="Frogger.png" alt="Project image" />
             <div class="project-info">
                 <h2>Frogger</h2>
                 <p>A lightweight arcade game where you dodge cars, ride moving logs, and land safely on lily pads.</p>
             </div>
         </div>
 
-        <div class="project fade-in">
+        <div class="project">
             <img src="RegistrationAutomation.png" alt="Project image" />
             <div class="project-info">
                 <h2>Keystone Registration</h2>
@@ -210,15 +198,15 @@
             </div>
         </div>
 
-        <div class="project fade-in">
+        <div class="project">
             <img src="chat.png" alt="Project image" />
             <div class="project-info">
                 <h2>ELIZA Chatbot</h2>
-                <p>A recreation of the classic ELIZA psychotherapy chatbot using keyword matching and pattern rules.</p>
+                <p>A recreation of the classic ELIZA psychotherapy chatbot using keyword matching and rules.</p>
             </div>
         </div>
 
-        <div class="project fade-in">
+        <div class="project">
             <img src="Ray Tracer.png" alt="Project image" />
             <div class="project-info">
                 <h2>Ray Tracer</h2>
@@ -226,28 +214,15 @@
             </div>
         </div>
 
-        <div class="project fade-in">
+        <div class="project">
             <img src="Reviews ML Picture.png" alt="Project image" />
             <div class="project-info">
                 <h2>NLP Review Analysis</h2>
-                <p>Extracts insights from user reviews using text preprocessing, sentiment analysis, and NLP modeling.</p>
+                <p>Extracts insights from user reviews using preprocessing, sentiment analysis, and NLP modeling.</p>
             </div>
         </div>
+
     </div>
-
-    <script>
-        // Scroll-triggered animation
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, { threshold: 0.2 });
-
-        fadeElements.forEach(el => observer.observe(el));
-    </script>
 
 </body>
 </html>
