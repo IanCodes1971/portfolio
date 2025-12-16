@@ -1,35 +1,41 @@
 /* PROJECT / CARD STYLES */
 .project {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    flex-wrap: wrap; /* allows text to wrap on smaller screens */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: nowrap; /* MODIFIED: Prevents the image and text from stacking on small screens */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    
+    /* Optional: Add min-width to prevent the container from squeezing too much */
+    min-width: 300px; 
 }
 
 .project img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
-    background: #ddd;
-    transition: transform 0.35s ease, box-shadow 0.25s ease;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #ddd;
+    transition: transform 0.35s ease, box-shadow 0.25s ease;
+    flex-shrink: 0; /* Ensures the image maintains its size */
 }
 
 .project-info {
-    flex: 1 1 auto; /* allows text to grow and wrap */
-    text-align: left;
+    flex: 1 1 auto; /* Allows the text block to take up remaining space */
+    text-align: left;
+    /* Optional: To ensure the text doesn't squeeze too much on narrow screens */
+    min-width: 150px; 
 }
 
 .project-info h2 {
-    margin-top: 0;
+    margin-top: 0;
 }
 
 .project-info p {
-    overflow: visible;
-    word-wrap: break-word;
+    overflow: visible;
+    word-wrap: break-word;
 }
