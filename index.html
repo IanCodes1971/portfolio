@@ -1,323 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ian Casini Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ian Casini Portfolio</title>
 
-    <style>
-        body {
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
-            color: white;
-            padding: 120px 20px;
-            text-align: center;
-        }
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+        }
 
-        .hero-content {
-            max-width: 800px;
-            margin: auto;
-        }
+        .hero-content {
+            max-width: 800px;
+            margin: auto;
+        }
 
-        .hero img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #ffb400;
-            margin-bottom: 25px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease;
-        }
+        .hero img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffb400;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.4);
+            transition: transform 0.3s ease;
+        }
 
-        .hero img:hover {
-            transform: scale(1.1);
-        }
+        .hero img:hover {
+            transform: scale(1.1);
+        }
 
-        .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 10px;
-        }
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+        }
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
 
-        .hero .btn {
-            display: inline-block;
-            padding: 12px 26px;
-            background: #ffb400;
-            color: #000;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-        }
+        .hero .btn {
+            display: inline-block;
+            padding: 12px 26px;
+            background: #ffb400;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
 
-        .hero .btn:hover {
-            background: #ffcf4d;
-        }
+        .hero .btn:hover {
+            background: #ffcf4d;
+        }
 
-        /* CONTAINERS */
-        .container {
-            width: 85%;
-            max-width: 900px;
-            margin: 40px auto;
-        }
+        /* CONTAINERS */
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            color: #333;
-        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            color: #333;
+        }
 
-        /* ABOUT & RESUME */
-        .about-section,
-        .resume-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            opacity: 0;
-            transform: translateY(20px) scale(0.99);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
-        }
+        /* ABOUT & RESUME */
+        .about-section,
+        .resume-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            flex-wrap: wrap; /* Allows wrapping if content is too wide */
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px) scale(0.99);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+        }
 
-        .about-section.in-view,
-        .resume-section.in-view {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
+        .about-section.in-view,
+        .resume-section.in-view {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
 
-        .resume-section img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-            background: #ddd;
-            flex-shrink: 0;
-            transition: transform 0.35s ease, box-shadow 0.25s ease;
-        }
+        .resume-section img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #ddd;
+            flex-shrink: 0;
+            transition: transform 0.35s ease, box-shadow 0.25s ease;
+        }
 
-        .resume-section img:hover {
-            transform: scale(1.15);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-        }
+        .resume-section img:hover {
+            transform: scale(1.15);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
 
-        .about-info,
-        .resume-info {
-            flex: 1;
-            max-width: calc(100% - 200px);
-        }
+        .about-info,
+        .resume-info {
+            flex: 1;
+            /* max-width: calc(100% - 200px); */ /* Removed this to allow for full width if it wraps */
+        }
 
-        .resume-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #1f1f1f;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            margin-top: 10px;
-        }
+        .resume-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #1f1f1f;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
 
-        .resume-btn:hover {
-            background: #333;
-        }
+        .resume-btn:hover {
+            background: #333;
+        }
 
-        /* PROJECTS */
-        .project {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-            align-items: flex-start;
-            flex-wrap: nowrap;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            opacity: 0;
-            transform: translateY(20px) scale(0.99);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
-        }
+        /* PROJECTS */
+        .project {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: flex-start;
+            flex-wrap: nowrap; /* Keep them in a single row */
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px) scale(0.99);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+        }
 
-        .project.in-view {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
+        .project.in-view {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
 
-        .project img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            background: #ddd;
-            flex-shrink: 0;
-            transition: transform 0.35s ease, box-shadow 0.25s ease;
-        }
+        .project img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #ddd;
+            flex-shrink: 0;
+            transition: transform 0.35s ease, box-shadow 0.25s ease;
+        }
 
-        .project img:hover {
-            transform: scale(1.15);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-        }
+        .project img:hover {
+            transform: scale(1.15);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
 
-        .project-info {
-            flex: 1;
-            max-width: calc(100% - 220px);
-            text-align: left;
-        }
+        .project-info {
+            flex: 1;
+            max-width: calc(100% - 220px);
+            text-align: left;
+        }
 
-        /* Hover effects */
-        .project:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-        }
+        /* Hover effects */
+        .project:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
 
-        /* Responsive */
-        @media (max-width: 700px) {
-            .project,
-            .resume-section,
-            .about-section {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
+        /* Responsive */
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
 
-            .project img,
-            .resume-section img {
-                width: 150px;
-                height: 150px;
-            }
+            /* **MODIFIED SECTION**: Remove flex-direction: column to prevent stacking on mobile */
+            .project,
+            .resume-section,
+            .about-section {
+                /* flex-direction: column; <-- REMOVED/COMMENTED OUT */
+                align-items: flex-start; /* Ensure left alignment when not stacking */
+                text-align: left; /* Ensure text alignment is left when not stacking */
+                flex-wrap: wrap; /* Re-enable wrapping to avoid overflow */
+            }
 
-            .project-info,
-            .resume-info,
-            .about-info {
-                max-width: 100%;
-            }
-        }
-    </style>
+            .project img,
+            .resume-section img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .project-info {
+                max-width: calc(100% - 170px); /* Adjust max-width for new image size */
+            }
+
+            .resume-info,
+            .about-info {
+                max-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- HERO -->
-    <div class="hero">
-        <div class="hero-content">
-            <img src="Headshot.png" alt="Ian Casini Photo" />
-            <h1>Ian Casini</h1>
-            <p>Software Developer • Data Analyst • IT Professional • Problem Solver</p>
-            <a href="#about" class="btn">Learn More</a>
-        </div>
-    </div>
+        <div class="hero">
+        <div class="hero-content">
+            <img src="Headshot.png" alt="Ian Casini Photo" />
+            <h1>Ian Casini</h1>
+            <p>Software Developer • Data Analyst • IT Professional • Problem Solver</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </div>
 
-    <!-- ABOUT -->
-    <div id="about" class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-section reveal">
-            <div class="about-info">
-                <h2>Hello!</h2>
-                <p>
-                    I am Ian Casini, a software developer and data analyst passionate about solving complex problems
-                    and building meaningful projects. My experience spans game development, automation scripts,
-                    AI chatbots, ray tracing, and data analysis. I enjoy turning data into insights, creating 
-                    interactive applications, and learning new technologies to stay at the forefront of innovation.
-                </p>
-                <p>
-                    This website is a project I built myself to showcase my software development experience, highlight my portfolio, 
-                    and demonstrate my ability to design, implement, and present interactive web content.
-                </p>
-            </div>
-        </div>
-    </div>
+        <div id="about" class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-section reveal">
+            <div class="about-info">
+                <h2>Hello!</h2>
+                <p>
+                    I am Ian Casini, a software developer and data analyst passionate about solving complex problems
+                    and building meaningful projects. My experience spans game development, automation scripts,
+                    AI chatbots, ray tracing, and data analysis. I enjoy turning data into insights, creating 
+                    interactive applications, and learning new technologies to stay at the forefront of innovation.
+                </p>
+                <p>
+                    This website is a project I built myself to showcase my software development experience, highlight my portfolio, 
+                    and demonstrate my ability to design, implement, and present interactive web content.
+                </p>
+            </div>
+        </div>
+    </div>
 
-    <!-- RESUME -->
-    <div class="container">
-        <h2 class="section-title">Resume</h2>
-        <div class="resume-section reveal">
-            <img src="resumepicture.png" alt="Resume Screenshot" />
-            <div class="resume-info">
-                <h2>My Resume</h2>
-                <p>Click below to download a PDF version of my full resume.</p>
-                <a href="Ian Casini Resume.pdf" class="resume-btn" target="_blank">Download Resume</a>
-            </div>
-        </div>
-    </div>
+        <div class="container">
+        <h2 class="section-title">Resume</h2>
+        <div class="resume-section reveal">
+            <img src="resumepicture.png" alt="Resume Screenshot" />
+            <div class="resume-info">
+                <h2>My Resume</h2>
+                <p>Click below to download a PDF version of my full resume.</p>
+                <a href="Ian Casini Resume.pdf" class="resume-btn" target="_blank">Download Resume</a>
+            </div>
+        </div>
+    </div>
 
-    <!-- PROJECTS -->
-    <div id="projects" class="container">
-        <h2 class="section-title">Featured Projects</h2>
+        <div id="projects" class="container">
+        <h2 class="section-title">Featured Projects</h2>
 
-        <div class="project reveal">
-            <img src="Frogger.png" alt="Project image" />
-            <div class="project-info">
-                <h2>Frogger</h2>
-                <p>Designed and implemented a Frogger-style arcade game using Visual Basic (.NET) with object-oriented design, event-driven programming, and collision detection algorithms. Developed responsive keyboard input and synchronized animation for consistent gameplay. This project demonstrates Visual Basic syntax, .NET event handling, timers, and modular code organization.</p>
-            </div>
-        </div>
+        <div class="project reveal">
+            <img src="Frogger.png" alt="Project image" />
+            <div class="project-info">
+                <h2>Frogger</h2>
+                <p>Designed and implemented a Frogger-style arcade game using Visual Basic (.NET) with object-oriented design, event-driven programming, and collision detection algorithms. Developed responsive keyboard input and synchronized animation for consistent gameplay. This project demonstrates Visual Basic syntax, .NET event handling, timers, and modular code organization.</p>
+            </div>
+        </div>
 
-        <div class="project reveal">
-            <img src="RegistrationAutomation.png" alt="Project image" />
-            <div class="project-info">
-                <h2>Keystone Registration</h2>
-                <p>Built a production registration automation system using Google Apps Script, integrating Google Forms, Sheets, and Gmail. Automated real-time processing, validation, and customized notifications for students and professors. Demonstrates workflow automation, Google Workspace integration, and software deployment in a live academic environment.</p>
-            </div>
-        </div>
+        <div class="project reveal">
+            <img src="RegistrationAutomation.png" alt="Project image" />
+            <div class="project-info">
+                <h2>Keystone Registration</h2>
+                <p>Built a production registration automation system using Google Apps Script, integrating Google Forms, Sheets, and Gmail. Automated real-time processing, validation, and customized notifications for students and professors. Demonstrates workflow automation, Google Workspace integration, and software deployment in a live academic environment.</p>
+            </div>
+        </div>
 
-        <div class="project reveal">
-            <img src="chat.png" alt="Project image" />
-            <div class="project-info">
-                <h2>ELIZA Chatbot</h2>
-                <p>Recreated the classic ELIZA chatbot in C using rule-based dialogue, keyword detection, and pattern-response mappings. Implemented low-level string parsing and memory management. Demonstrates foundational NLP concepts, symbolic AI, and C programming skills.</p>
-            </div>
-        </div>
+        <div class="project reveal">
+            <img src="chat.png" alt="Project image" />
+            <div class="project-info">
+                <h2>ELIZA Chatbot</h2>
+                <p>Recreated the classic ELIZA chatbot in C using rule-based dialogue, keyword detection, and pattern-response mappings. Implemented low-level string parsing and memory management. Demonstrates foundational NLP concepts, symbolic AI, and C programming skills.</p>
+            </div>
+        </div>
 
-        <div class="project reveal">
-            <img src="render.png" alt="Project image" />
-            <div class="project-info">
-                <h2>Ray Tracer</h2>
-                <p>Developed a ray tracer in Java with GUI, implementing ray-object intersections, lighting, shading, and shadows. Highlights skills in object-oriented design, computational geometry, linear algebra, and visualization of 3D models.</p>
-            </div>
-        </div>
+        <div class="project reveal">
+            <img src="render.png" alt="Project image" />
+            <div class="project-info">
+                <h2>Ray Tracer</h2>
+                <p>Developed a ray tracer in Java with GUI, implementing ray-object intersections, lighting, shading, and shadows. Highlights skills in object-oriented design, computational geometry, linear algebra, and visualization of 3D models.</p>
+            </div>
+        </div>
 
-        <div class="project reveal">
-            <img src="Reviews ML Picture.png" alt="Project image" />
-            <div class="project-info">
-                <h2>NLP Review Analysis</h2>
-                <p>Created a Python pipeline using NumPy and pandas for text preprocessing, sentiment analysis, and NLP modeling. Extracted insights from user reviews, applied TF-IDF, and visualized patterns for decision-making. Demonstrates data cleaning, NLP, and analysis skills.</p>
-            </div>
-        </div>
+        <div class="project reveal">
+            <img src="Reviews ML Picture.png" alt="Project image" />
+            <div class="project-info">
+                <h2>NLP Review Analysis</h2>
+                <p>Created a Python pipeline using NumPy and pandas for text preprocessing, sentiment analysis, and NLP modeling. Extracted insights from user reviews, applied TF-IDF, and visualized patterns for decision-making. Demonstrates data cleaning, NLP, and analysis skills.</p>
+            </div>
+        </div>
 
-    </div>
+    </div>
 
-    <script>
-        // Scroll reveal using IntersectionObserver
-        document.addEventListener('DOMContentLoaded', function() {
-            const observer = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+    <script>
+        // Scroll reveal using IntersectionObserver
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
 
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        });
-    </script>
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
 
 </body>
 </html>
