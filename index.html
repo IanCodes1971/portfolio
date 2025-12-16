@@ -98,7 +98,7 @@
             display: flex;
             gap: 20px;
             align-items: flex-start;
-            flex-wrap: wrap; /* allows wrapping for long text */
+            flex-wrap: nowrap;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 
             /* reveal animation defaults */
@@ -124,19 +124,20 @@
             box-shadow: 0 8px 30px rgba(0,0,0,0.15);
         }
 
-        /* Smaller project images by default, enlarge on hover */
         .project img,
         .resume-section img {
-            width: 120px;
-            height: 120px;
+            width: 180px;
+            height: 180px;
             object-fit: cover;
             border-radius: 8px;
             background: #ddd;
             transition: transform 0.35s ease, box-shadow 0.25s ease;
             transform-origin: center center;
+            flex-shrink: 0;
         }
 
-        .project:hover img {
+        .project:hover img,
+        .resume-section img:hover {
             transform: scale(1.15);
             box-shadow: 0 6px 18px rgba(0,0,0,0.15);
         }
@@ -144,7 +145,7 @@
         .project-info,
         .resume-info,
         .about-info {
-            flex: 1 1 auto; /* allows text to grow and wrap */
+            flex: 1 1 auto;
             text-align: left;
         }
 
