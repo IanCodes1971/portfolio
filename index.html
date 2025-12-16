@@ -1,323 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ian Casini Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ian Casini Portfolio</title>
 
-    <style>
-        body {
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
-            color: white;
-            padding: 120px 20px;
-            text-align: center;
-        }
+        /* SIMPLE ZOOM HOVER EFFECTS */
+        .hero img,
+        .resume-section img {
+            transition: transform 0.3s ease;
+        }
 
-        .hero-content {
-            max-width: 800px;
-            margin: auto;
-        }
+        .hero img:hover,
+        .resume-section img:hover {
+            transform: scale(1.1);
+        }
 
-        .hero img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #ffb400;
-            margin-bottom: 25px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease;
-        }
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #1f1f1f, #3a3a3a);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+        }
 
-        .hero img:hover {
-            transform: scale(1.1);
-        }
+        .hero-content {
+            max-width: 800px;
+            margin: auto;
+        }
 
-        .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 10px;
-        }
+        .hero img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffb400;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        }
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+        }
 
-        .hero .btn {
-            display: inline-block;
-            padding: 12px 26px;
-            background: #ffb400;
-            color: #000;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
 
-        .hero .btn:hover {
-            background: #ffcf4d;
-        }
+        .hero .btn {
+            display: inline-block;
+            padding: 12px 26px;
+            background: #ffb400;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
 
-        /* CONTAINERS */
-        .container {
-            width: 85%;
-            max-width: 900px;
-            margin: 40px auto;
-        }
+        .hero .btn:hover {
+            background: #ffcf4d;
+        }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
-            color: #333;
-        }
+        /* CONTAINERS */
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
 
-        /* ABOUT & RESUME */
-        .about-section,
-        .resume-section {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            opacity: 0;
-            transform: translateY(20px) scale(0.99);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
-        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            color: #333;
+        }
 
-        .about-section.in-view,
-        .resume-section.in-view {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
+        /* PROJECT / CARD STYLES */
+        .project,
+        .resume-section,
+        .about-section {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            flex-wrap: wrap; /* allows wrapping for long text */
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 
-        .resume-section img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-            background: #ddd;
-            flex-shrink: 0;
-            transition: transform 0.35s ease, box-shadow 0.25s ease;
-        }
+            /* reveal animation defaults */
+            opacity: 0;
+            transform: translateY(20px) scale(0.99);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+        }
 
-        .resume-section img:hover {
-            transform: scale(1.15);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-        }
+        .project.in-view,
+        .resume-section.in-view,
+        .about-section.in-view {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
 
-        .about-info,
-        .resume-info {
-            flex: 1;
-            max-width: calc(100% - 200px);
-        }
+        /* Hover effect for each project card */
+        .project {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-        .resume-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #1f1f1f;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            margin-top: 10px;
-        }
+        .project:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
 
-        .resume-btn:hover {
-            background: #333;
-        }
+        /* Smaller project images by default, enlarge on hover */
+        .project img,
+        .resume-section img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: #ddd;
+            transition: transform 0.35s ease, box-shadow 0.25s ease;
+            transform-origin: center center;
+        }
 
-        /* PROJECTS */
-        .project {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-            align-items: flex-start;
-            flex-wrap: nowrap;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            opacity: 0;
-            transform: translateY(20px) scale(0.99);
-            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
-        }
+        .project:hover img {
+            transform: scale(1.15);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        }
 
-        .project.in-view {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
+        .project-info,
+        .resume-info,
+        .about-info {
+            flex: 1 1 auto; /* allows text to grow and wrap */
+            text-align: left;
+        }
 
-        .project img {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            background: #ddd;
-            flex-shrink: 0;
-            transition: transform 0.35s ease, box-shadow 0.25s ease;
-        }
+        .project-info h2,
+        .resume-info h2,
+        .about-info h2 {
+            margin-top: 0;
+        }
 
-        .project img:hover {
-            transform: scale(1.15);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-        }
+        .project-info p {
+            overflow: visible;
+            word-wrap: break-word;
+        }
 
-        .project-info {
-            flex: 1;
-            max-width: calc(100% - 220px);
-            text-align: left;
-        }
+        .resume-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #1f1f1f;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
 
-        /* Hover effects */
-        .project:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-        }
+        .resume-btn:hover {
+            background: #333;
+        }
 
-        /* Responsive */
-        @media (max-width: 700px) {
-            .project,
-            .resume-section,
-            .about-section {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
+        /* Responsive tweaks */
+        @media (max-width: 600px) {
+            .project,
+            .resume-section,
+            .about-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
 
-            .project img,
-            .resume-section img {
-                width: 150px;
-                height: 150px;
-            }
+            .project img,
+            .resume-section img {
+                width: 100px;
+                height: 100px;
+            }
 
-            .project-info,
-            .resume-info,
-            .about-info {
-                max-width: 100%;
-            }
-        }
-    </style>
+            .project-info {
+                text-align: center;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <!-- HERO -->
-    <div class="hero">
-        <div class="hero-content">
-            <img src="Headshot.png" alt="Ian Casini Photo" />
-            <h1>Ian Casini</h1>
-            <p>Software Developer • Data Analyst • IT Professional • Problem Solver</p>
-            <a href="#about" class="btn">Learn More</a>
-        </div>
-    </div>
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="hero-content">
+            <img src="Headshot.png" alt="Ian Casini Photo" />
+            <h1>Ian Casini</h1>
+            <p>Software Developer • Data Analyst • IT Professional • Problem Solver</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </div>
 
-    <!-- ABOUT -->
-    <div id="about" class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-section reveal">
-            <div class="about-info">
-                <h2>Hello!</h2>
-                <p>
-                    I am Ian Casini, a software developer and data analyst passionate about solving complex problems
-                    and building meaningful projects. My experience spans game development, automation scripts,
-                    AI chatbots, ray tracing, and data analysis. I enjoy turning data into insights, creating 
-                    interactive applications, and learning new technologies to stay at the forefront of innovation.
-                </p>
-                <p>
-                    This website is a project I built myself to showcase my software development experience, highlight my portfolio, 
-                    and demonstrate my ability to design, implement, and present interactive web content.
-                </p>
-            </div>
-        </div>
-    </div>
+    <!-- ABOUT ME SECTION -->
+    <div id="about" class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-section reveal">
+            <div class="about-info">
+                <h2>Hello!</h2>
+                <p>
+                    I am Ian Casini, a software developer and data analyst passionate about solving complex problems
+                    and building meaningful projects. My experience spans game development, automation scripts,
+                    AI chatbots, ray tracing, and data analysis. I enjoy turning data into insights, creating 
+                    interactive applications, and learning new technologies to stay at the forefront of innovation.
+                </p>
+            </div>
+        </div>
+    </div>
 
-    <!-- RESUME -->
-    <div class="container">
-        <h2 class="section-title">Resume</h2>
-        <div class="resume-section reveal">
-            <img src="resumepicture.png" alt="Resume Screenshot" />
-            <div class="resume-info">
-                <h2>My Resume</h2>
-                <p>Click below to download a PDF version of my full resume.</p>
-                <a href="Ian Casini Resume.pdf" class="resume-btn" target="_blank">Download Resume</a>
-            </div>
-        </div>
-    </div>
+    <!-- RESUME SECTION -->
+    <div class="container">
+        <h2 class="section-title">Resume</h2>
+        <div class="resume-section reveal">
+            <img src="resumepicture.png" alt="Resume Screenshot" />
+            <div class="resume-info">
+                <h2>My Resume</h2>
+                <p>Click below to download a PDF version of my full resume.</p>
+                <a href="Ian Casini Resume.pdf" class="resume-btn" target="_blank">Download Resume</a>
+            </div>
+        </div>
+    </div>
 
-    <!-- PROJECTS -->
-    <div id="projects" class="container">
-        <h2 class="section-title">Featured Projects</h2>
+    <!-- PROJECTS SECTION -->
+    <div id="projects" class="container">
+        <h2 class="section-title">Featured Projects</h2>
 
-        <div class="project reveal">
-            <img src="Frogger.png" alt="Project image" />
-            <div class="project-info">
-                <h2>Frogger</h2>
-                <p>Designed and implemented a Frogger-style arcade game using Visual Basic (.NET) with object-oriented design, event-driven programming, and collision detection algorithms. Developed responsive keyboard input and synchronized animation for consistent gameplay. This project demonstrates Visual Basic syntax, .NET event handling, timers, and modular code organization.</p>
-            </div>
-        </div>
+        <div class="project reveal">
+            <img src="Frogger.png" alt="Project image" />
+            <div class="project-info">
+                <h2>Frogger</h2>
+                <p>Designed and implemented a Frogger-style arcade game using Visual Basic (.NET) with an emphasis on structured, event-driven programming. The application uses object-oriented design to model game entities such as the player, vehicles, lanes, and goal zones, enabling clear separation of concerns and extensibility.
 
-        <div class="project reveal">
-            <img src="RegistrationAutomation.png" alt="Project image" />
-            <div class="project-info">
-                <h2>Keystone Registration</h2>
-                <p>Built a production registration automation system using Google Apps Script, integrating Google Forms, Sheets, and Gmail. Automated real-time processing, validation, and customized notifications for students and professors. Demonstrates workflow automation, Google Workspace integration, and software deployment in a live academic environment.</p>
-            </div>
-        </div>
+Implemented collision detection algorithms using bounding-box logic to evaluate interactions between the player and moving obstacles in real time. Game state is managed through a centralized control loop driven by timer events, handling player input, movement updates, score tracking, and win/lose conditions.
 
-        <div class="project reveal">
-            <img src="chat.png" alt="Project image" />
-            <div class="project-info">
-                <h2>ELIZA Chatbot</h2>
-                <p>Recreated the classic ELIZA chatbot in C using rule-based dialogue, keyword detection, and pattern-response mappings. Implemented low-level string parsing and memory management. Demonstrates foundational NLP concepts, symbolic AI, and C programming skills.</p>
-            </div>
-        </div>
+Developed responsive keyboard input handling and synchronized animation updates to ensure consistent gameplay behavior. The project required extensive debugging and control-flow analysis to resolve race conditions, movement timing issues, and state transitions.
 
-        <div class="project reveal">
-            <img src="render.png" alt="Project image" />
-            <div class="project-info">
-                <h2>Ray Tracer</h2>
-                <p>Developed a ray tracer in Java with GUI, implementing ray-object intersections, lighting, shading, and shadows. Highlights skills in object-oriented design, computational geometry, linear algebra, and visualization of 3D models.</p>
-            </div>
-        </div>
+This project demonstrates proficiency in Visual Basic syntax, .NET event handling, timers, conditional logic, and modular code organization, as well as the ability to design and implement an interactive application from specification to completion.</p>
+            </div>
+        </div>
 
-        <div class="project reveal">
-            <img src="Reviews ML Picture.png" alt="Project image" />
-            <div class="project-info">
-                <h2>NLP Review Analysis</h2>
-                <p>Created a Python pipeline using NumPy and pandas for text preprocessing, sentiment analysis, and NLP modeling. Extracted insights from user reviews, applied TF-IDF, and visualized patterns for decision-making. Demonstrates data cleaning, NLP, and analysis skills.</p>
-            </div>
-        </div>
+        <div class="project reveal">
+            <img src="RegistrationAutomation.png" alt="Project image" />
+            <div class="project-info">
+                <h2>Keystone Registration</h2>
+                <p>Designed and implemented a production-used registration automation system for my university’s Keystone Project process using Google Apps Script. The system integrates Google Forms, Google Sheets, and Gmail to streamline project registration and communication between students and supervising professors.
 
-    </div>
+The automation captures form submissions and programmatically validates and records responses into structured Google Sheets, ensuring data consistency and reducing manual administrative work. Custom trigger functions handle real-time processing of submissions, including conditional logic to route information based on project type, department, and supervising faculty.
 
-    <script>
-        // Scroll reveal using IntersectionObserver
-        document.addEventListener('DOMContentLoaded', function() {
-            const observer = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('in-view');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+I developed dynamic email automation workflows that generate and send customized notifications to both students and professors, confirming registration details and facilitating approval communication. Email content is assembled using template logic and data mapping from form responses, minimizing errors and improving turnaround time.
 
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        });
-    </script>
+The project required careful handling of event triggers, permissions, error handling, and data integrity, as well as testing in a live academic environment. This system demonstrates experience building scalable workflow automations, integrating multiple Google Workspace services, and delivering software that supports real users in a production setting.</p>
+            </div>
+        </div>
+
+        <div class="project reveal">
+            <img src="chat.png" alt="Project image" />
+            <div class="project-info">
+                <h2>ELIZA Chatbot</h2>
+                <p>Recreated the classic ELIZA conversational program in C, implementing a rule-based dialogue system driven by keyword detection and pattern–response mappings. The program simulates natural language interaction using deterministic logic, illustrating how early NLP systems generated conversational behavior without machine learning.
+
+The implementation required extensive low-level string parsing, pointer manipulation, and manual memory management to process user input, prioritize matching rules, and sustain conversational flow across multiple exchanges. This project demonstrates a strong understanding of foundational AI concepts, C programming, and the mechanics behind symbolic language systems.</p>
+            </div>
+        </div>
+
+        <div class="project reveal">
+            <img src="render.png" alt="Project image" />
+            <div class="project-info">
+                <h2>Ray Tracer</h2>
+                <p>Developed a ray tracing renderer in Java, leveraging Java’s visual components to display a 3D scene in a GUI. The program casts rays from a virtual camera into the scene to calculate ray–object intersections (spheres, planes) and determine visible surfaces, producing a pixel-based rendering of the environment.
+
+Implemented basic lighting and shading, including ambient and diffuse components, using surface normals and light vectors to simulate realistic illumination. Shadow effects were achieved by casting secondary rays to detect light occlusion, demonstrating careful control of geometric computations and floating-point precision.
+
+This project highlights skills in object-oriented design, computational geometry, linear algebra, and GUI integration, as well as the ability to translate mathematical models into interactive, visually rendered software using Java’s built-in visual components.</p>
+            </div>
+        </div>
+
+        <div class="project reveal">
+            <img src="Reviews ML Picture.png" alt="Project image" />
+            <div class="project-info">
+                <h2>NLP Review Analysis</h2>
+                <p>Developed a data science pipeline to extract insights from user reviews using Python, leveraging NumPy and pandas for data manipulation and preprocessing. The project involved cleaning and structuring text data, including handling missing values, tokenization, stop-word removal, and stemming/lemmatization to prepare reviews for analysis.
+
+Applied sentiment analysis to classify reviews as positive, negative, or neutral, and used NLP modeling techniques—such as TF-IDF vectorization and word frequency analysis—to identify key topics and trends in user feedback. Results were summarized and visualized to reveal patterns and actionable insights for decision-making.
+
+This project demonstrates proficiency in data cleaning, text preprocessing, sentiment analysis, NLP modeling, and the use of NumPy and pandas for efficient data handling, as well as the ability to turn unstructured text into meaningful, interpretable information.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- UPCOMING PROJECTS SECTION -->
+    <div id="upcoming-projects" class="container">
+        <h2 class="section-title">Upcoming Projects</h2>
+        <div class="project reveal">
+            <img src="placeholder.png" alt="Upcoming Project Image" />
+            <div class="project-info">
+                <h2>More Projects in Progress</h2>
+                <p>
+                    I am actively working on several new projects that will be added to the portfolio soon, including a 
+                    <strong>Socket Chat application</strong> for real-time communication, a <strong>War Card Game</strong>, 
+                    and a <strong>Zelda Recreation</strong> that leverages dynamic user input and advanced UI features. 
+                    Stay tuned for updates as these projects are completed and showcased here.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Scroll reveal using IntersectionObserver
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
 
 </body>
 </html>
