@@ -1,28 +1,35 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+/* PROJECT / CARD STYLES */
+.project {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap; /* allows text to wrap on smaller screens */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+.project img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #ddd;
+    transition: transform 0.35s ease, box-shadow 0.25s ease;
 }
 
-main {
-    padding: 2rem;
-    text-align: center;
+.project-info {
+    flex: 1 1 auto; /* allows text to grow and wrap */
+    text-align: left;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+.project-info h2 {
+    margin-top: 0;
+}
+
+.project-info p {
+    overflow: visible;
+    word-wrap: break-word;
 }
